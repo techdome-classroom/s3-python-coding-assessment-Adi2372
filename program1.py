@@ -1,19 +1,24 @@
-def is_valid(s: str) -> bool:
+def isvalid(s: str) -> bool:
+   
     stack = []
+    
     bracket_map = {')': '(', '}': '{', ']': '['}
     
     for char in s:
-        if char in bracket_map.values():
+        if char in bracket_map.values():  
             stack.append(char)
-        elif char in bracket_map.keys():
+        elif char in bracket_map.keys():  
+           
             if stack and stack[-1] == bracket_map[char]:
-                stack.pop()
+                stack.pop() 
             else:
-                return False
+                return False 
+
     return not stack
 
-s = "{[()]}"
-print(is_valid(s))
+test_strings = ["()", "{[]}", "(]", "([)]", "{[()]}"]
+for s in test_strings:
+    print(f"{s}: {isvalid(s)}")
 
 
 
